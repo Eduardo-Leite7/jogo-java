@@ -8,7 +8,7 @@ public class Jogo {
             new Pistola()
         };
 
-        Criatura jogador = new Jogador("Ludovica", armas);
+        Criatura jogador = new Jogador("Lula", armas);
         Criatura inimigo = new FlavioBolsonaro();
 
         System.out.println("Começa a Batalha");
