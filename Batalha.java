@@ -19,13 +19,11 @@ public class Batalha {
             if( !jogador.estaVivo() ){
                 jogador.fraseMorte();
                 System.out.println(inimigo.getNome() + " venceu.");
-                break;
                 return false;
             }
             if( !inimigo.estaVivo() ){
                 inimigo.fraseMorte();
                 System.out.println(jogador.getNome() + " venceu.");
-                break;
                 return true;
             }
 

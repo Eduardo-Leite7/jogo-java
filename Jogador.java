@@ -3,10 +3,15 @@ import java.util.Scanner;
 public class Jogador extends Criatura {
 
     private Arma[] armas;
+    private final int vidaInicial = 1000;
 
     public Jogador(String nome, Arma[] armas ) {
         super(nome, 1000);
         this.armas = armas;
+    }
+
+    public void restaurar(){
+        restaurarVida(vidaInicial);
     }
 
 	@Override

@@ -6,18 +6,21 @@ public abstract class Arma {
     private int ataque;
     private int chance;
     private int municao;
+    private int municaoInicial;
     
     public Arma(String nome, int ataque, int chance) {
         this.nome = nome;
         this.ataque = ataque;
         this.chance = chance;
         this.municao = -1;
+        this.municaoInicial = -1;
     }
     public Arma(String nome, int ataque) {
         this.nome = nome;
         this.ataque = ataque;
         this.chance = 100;
         this.municao = -1;
+        this.municaoInicial = -1;
     }
 
     public Arma(String nome, int ataque, int chance, int municao) {
@@ -25,6 +28,7 @@ public abstract class Arma {
         this.ataque = ataque;
         this.chance = chance;
         this.municao = municao;
+        this.municaoInicial = municao;
     }
 
     public void mensagem(){
@@ -55,6 +59,11 @@ public abstract class Arma {
         }
     }
 
+    public void restaurarMunicao(){
+        if (municaoInicial >= 0){
+            municao = municaoInicial;
+        }
+    }
     
 
 }

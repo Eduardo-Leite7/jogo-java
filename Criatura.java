@@ -14,12 +14,19 @@ public abstract class Criatura {
     public void mostraVida(){
         System.out.println(this.nome + ": " + this.vida + " pontos de vida.");
     }
+
+    public void restaurarVida(int vidaInicial){
+        this.vida = vidaInicial;
+    }
+
     public String getNome() {
         return this.nome;
     }
+
     public boolean estaVivo() {
         return this.vida > 0;
     }
+
     public void tomaDano(int dano){
         this.vida -= dano;
         if( this.vida < 0 ){
