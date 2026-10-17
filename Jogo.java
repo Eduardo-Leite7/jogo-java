@@ -1,44 +1,65 @@
+import java.util.Scanner;
+
 public class Jogo {
-    public static void main(String[] args){
+    public static void main(String[] args) {
+
+        // NOME DO JOGADOR
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Digite o nome do seu personagem: ");
+        String nomeJogador = sc.nextLine();
+
+        // ESCOLHA DA ARMA CURTA
+        System.out.println("Escolha sua arma de curta distância:");
+        System.out.println("1 - Espada");
+        System.out.println("2 - Faca");
+        System.out.println("Opções: ");
+
+        int escolhaCurta = sc.nextInt();
+
+        while (escolhaCurta != 1 && escolhaCurta != 2) {
+            System.out.println("Opção inválida. Escolha 1 ou 2: ");
+        }
+
+        Arma armaCurta;
+
+        if (escolhaCurta == 1) {
+            armaCurta = new Espada();
+        } else {
+            armaCurta = new Faca();
+        }
+
+        // ESCOLHA DA ARMA LONGA
+        System.out.println("Escolha sua arma de longa distância:");
+        System.out.println("1 - Arco e flecha");
+        System.out.println("2 - Pistola");
+        System.out.print("Opção: ");
+
+        int escolhaLonga = sc.nextInt();
+
+        while (escolhaLonga != 1 && escolhaLonga != 2) {
+            System.out.print("Opção inválida. Escolha 1 ou 2: ");
+            escolhaLonga = sc.nextInt();
+        }
+
+        Arma armaLonga;
+
+        if (escolhaLonga == 1) {
+            armaLonga = new ArcoEFlecha();
+        } else {
+            armaLonga = new Pistola();
+        }
+
+        //--------------------------------------------
 
         Arma[] armas = {
-            new Faca(),
-            new ArcoEFlecha(),
-            new Porrete(),
-            new Pistola()
+                armaCurta,
+                armaLonga
         };
 
-        Criatura jogador = new Jogador("Lula", armas);
+        Criatura jogador = new Jogador(nomeJogador, armas);
         Criatura inimigo = new FlavioBolsonaro();
+        Batalha batalha = new Batalha();
+        batalha.iniciar(jogador, inimigo);
 
-        System.out.println("Começa a Batalha");
-        System.out.println("################\n");
-    
-        jogador.fraseApresentacao();
-        inimigo.fraseApresentacao();
-        
-        while(true){
-            jogador.mostraVida();
-            inimigo.mostraVida();
-
-            jogador.fazAtaque(inimigo);
-            if( inimigo.estaVivo() ){
-                inimigo.fazAtaque(jogador);
-            }
-
-            if( !jogador.estaVivo() ){
-                jogador.fraseMorte();
-                System.out.println(inimigo.getNome() + " venceu.");
-                break;
-            }
-            if( !inimigo.estaVivo() ){
-                inimigo.fraseMorte();
-                System.out.println(jogador.getNome() + " venceu.");
-                break;
-            }
-
-            jogador.upgrade();
-            inimigo.upgrade();
-        }
     }
 }

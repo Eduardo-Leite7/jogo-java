@@ -3,8 +3,8 @@ public class DefesaHibrida extends Defesa{
     private Esquiva esquiva;
 
     public DefesaHibrida(int chanceEsquiva, int reducaoEscudo) {
-        this.escudo = escudo;
-        this.esquiva = esquiva;
+        this.escudo = new Escudo(reducaoEscudo);
+        this.esquiva = new Esquiva(chanceEsquiva);
     }
 
     @Override
