@@ -12,20 +12,26 @@ public class Jogador extends Criatura {
 
     public void restaurar(){
         restaurarVida(vidaInicial);
+
+        for (Arma arma : armas) {
+            arma.restaurarMunicao();
+        }
     }
 
 	@Override
 	public void fazAtaque(Criatura criatura) {
         Scanner sc = new Scanner(System.in);
-        
-        System.out.println("Escolha sua arma:");
+
+        System.out.println("\n--- SEU TURNO DE ATAQUE ---");
+        System.out.println("Escolha qual arma deseja usar neste ataque:");
         int n = 1;
         for( Arma arma : armas ){
             System.out.print( n + ") " );
             arma.mensagem();
             n++;
         }
-        
+
+        System.out.print("Digite o número da arma: ");
         int escolha = sc.nextInt();
         while( escolha < 1 || escolha > n - 1 ) {
             System.out.print("Número inválido. Digite novamente: ");

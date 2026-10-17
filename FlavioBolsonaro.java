@@ -3,7 +3,7 @@ import java.util.Random;
 public class FlavioBolsonaro extends Inimigo {
 	//UTILIZAÇÃO DA DEFESA HIBRIDA
     public FlavioBolsonaro() {
-        super("FlavioBolsonaro", 500, 200, new DefesaHibrida(30, 20));
+        super("FlavioBolsonaro", 450, 100, new DefesaHibrida(30, 20));
     }
 
 	@Override

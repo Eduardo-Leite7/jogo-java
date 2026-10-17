@@ -1,4 +1,6 @@
+import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.List;
 
 public class Jogo {
     public static void main(String[] args) {
@@ -56,10 +58,40 @@ public class Jogo {
                 armaLonga
         };
 
-        Criatura jogador = new Jogador(nomeJogador, armas);
+        Jogador jogador = new Jogador(nomeJogador, armas);
         Criatura inimigo = new FlavioBolsonaro();
         Batalha batalha = new Batalha();
-        batalha.iniciar(jogador, inimigo);
+        List<String> resultados = new ArrayList<>();
+
+        System.out.println("\n========== PRIMEIRO BOSS: FLAVIO ==========");
+        boolean venceu = batalha.iniciar(jogador, new FlavioBolsonaro());
+        resultados.add("FlavioBolsonaro: " + (venceu ? "VITÓRIA" : "DERROTA"));
+
+        if (venceu) {
+            jogador.restaurar();
+
+            System.out.println("\n========== SEGUNDO BOSS: BOLSONARO ==========");
+            venceu = batalha.iniciar(jogador, new Bolsonaro());
+            resultados.add("Bolsonaro: " + (venceu ? "VITÓRIA" : "DERROTA"));
+
+            if (venceu) {
+                jogador.restaurar();
+
+                System.out.println("\n========== TERCEIRO BOSS: EDUARDA ==========");
+                venceu = batalha.iniciar(jogador, new Eduarda());
+                resultados.add("Eduarda: " + (venceu ? "VITÓRIA" : "DERROTA"));
+
+                if (venceu) {
+                    System.out.println("\nPARABÉNS! VOCÊ VENCEU OS TRÊS BOSSES!");
+                }
+            }
+        }
+
+        System.out.println("\n========== RESULTADO FINAL ==========");
+
+        for (String resultado : resultados) {
+            System.out.println(resultado);
+        }
 
     }
 }
