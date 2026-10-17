@@ -1,5 +1,3 @@
-package Program;
-
 public class Jogo {
     public static void main(String[] args){
 
@@ -11,7 +9,7 @@ public class Jogo {
         };
 
         Criatura jogador = new Jogador("Ludovica", armas);
-        Criatura inimigo = new Malignus();
+        Criatura inimigo = new FlavioBolsonaro();
 
         System.out.println("Começa a Batalha");
         System.out.println("################\n");

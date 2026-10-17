@@ -14,7 +14,11 @@ public abstract class Inimigo extends Criatura {
         this.defesa = defesa;
     }
 
-	@Override
+    public int getAtaque() {
+        return ataque;
+    }
+
+    @Override
 	public void fazAtaque(Criatura criatura) {
 		criatura.tomaDano(this.ataque);
 	}
