@@ -14,5 +14,5 @@ public class FlavioBolsonaro extends Inimigo {
 		System.out.println("Papai me ajude papaaaai");
 	}
 
-    
+
 }
